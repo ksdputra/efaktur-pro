@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_041715) do
+ActiveRecord::Schema.define(version: 2020_06_17_051416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 2020_06_17_041715) do
     t.string "province"
     t.string "postal_code"
     t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "nofas", force: :cascade do |t|
+    t.integer "company_id"
+    t.string "initial_number"
+    t.string "final_number"
+    t.string "last_used"
+    t.boolean "is_expired", default: false
+    t.boolean "is_active", default: false
+    t.string "file_path"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
