@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_040115) do
+ActiveRecord::Schema.define(version: 2020_06_17_041011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "npwp"
+    t.string "name"
+    t.string "address"
+    t.string "block"
+    t.string "number"
+    t.string "rt"
+    t.string "rw"
+    t.string "village"
+    t.string "subdistrict"
+    t.string "regency"
+    t.string "province"
+    t.string "postal_code"
+    t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -23,9 +42,9 @@ ActiveRecord::Schema.define(version: 2020_06_16_040115) do
     t.string "address"
     t.string "city"
     t.string "postal_code"
-    t.string "phone_number"
-    t.string "fax_number"
-    t.string "cellphone_number"
+    t.string "phone"
+    t.string "fax"
+    t.string "cellphone"
     t.string "signer"
     t.string "position"
     t.string "initial_fiscal_year"

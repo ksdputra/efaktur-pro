@@ -8,9 +8,9 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :address
       t.string :city
       t.string :postal_code
-      t.string :phone_number
-      t.string :fax_number
-      t.string :cellphone_number
+      t.string :phone
+      t.string :fax
+      t.string :cellphone
       t.string :signer
       t.string :position
       t.string :initial_fiscal_year
