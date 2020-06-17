@@ -1,3 +1,5 @@
+# For more information about how this module works,
+# read this article: https://dev.to/kputra/rails-refactor-your-where-method-5b10
 module Filterable
   extend ActiveSupport::Concern
 
