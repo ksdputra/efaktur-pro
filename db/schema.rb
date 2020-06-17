@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_051416) do
     t.string "province"
     t.string "postal_code"
     t.string "phone"
+    t.boolean "is_dropdown", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_051416) do
     t.string "code"
     t.string "name"
     t.float "price"
+    t.boolean "is_dropdown", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

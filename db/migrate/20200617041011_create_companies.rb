@@ -15,6 +15,7 @@ class CreateCompanies < ActiveRecord::Migration[6.0]
       t.string :province
       t.string :postal_code
       t.string :phone
+      t.boolean :is_dropdown, default: false
 
       t.timestamps
     end
