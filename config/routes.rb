@@ -6,5 +6,12 @@ Rails.application.routes.draw do
   namespace :api do
     post 'user', to: 'users#create'
     post 'login', to: 'users#authenticate'
+
+    namespace :reference  do
+      scope :company do
+        get 'dropdown', to: 'companies#dropdown'
+      end
+      resources :company, controller: 'companies', only: %i[index create show update destroy]
+    end
   end
 end

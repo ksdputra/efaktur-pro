@@ -59,7 +59,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # For encrypt and decrypt enofa password
 gem 'attr_encrypted', '~> 3.1.0'
+# Use will_paginate for pagination
+gem 'will_paginate', '~> 3.1.0'
 # To convert pluck to hash
 gem 'pluck_all', '~> 2.0.4'
 # JSON Schema validator, for SPT
 gem 'activerecord_json_validator', '~> 1.3.0'
+
