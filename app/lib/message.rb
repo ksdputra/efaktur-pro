@@ -4,7 +4,7 @@ class Message
   end
 
   def self.invalid_credentials
-    'Email atau Password salah.'
+    'Login Anda bermasalah.'
   end
 
   def self.invalid_token
