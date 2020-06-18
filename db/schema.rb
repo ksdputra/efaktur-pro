@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 2020_06_17_051416) do
     t.string "initial_fiscal_year"
     t.string "final_fiscal_year"
     t.text "digcert_data"
-    t.string "encrypted_p12_passphrase"
-    t.string "encrypted_p12_passphrase_iv"
+    t.string "encrypted_passphrase"
+    t.string "encrypted_passphrase_iv"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

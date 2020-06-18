@@ -16,8 +16,8 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :initial_fiscal_year
       t.string :final_fiscal_year
       t.text   :digcert_data
-      t.string :encrypted_p12_passphrase
-      t.string :encrypted_p12_passphrase_iv
+      t.string :encrypted_passphrase
+      t.string :encrypted_passphrase_iv
 
       t.timestamps
     end

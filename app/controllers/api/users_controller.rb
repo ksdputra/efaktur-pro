@@ -12,15 +12,35 @@ module Api
       render json: { status: 'OK', message: auth_token }, status: 200
     end
 
+    def show
+      object = current_user.show
+      render json: { object: object }, status: 200
+    end
+
     def update
       current_user.update!(update_params)
       render json: { status: 'OK', message: 'Profil berhasil diperbaharui.' }, status: 200
     end
 
-    # TODO upload digcert dan masukkan p12 pasphrase
-    # bahas apakah setelah signup perlu aktivasi melalui email,
-    # sehingga memasukkan digcert dan completion profile
-    # dilakukan ketika aktivasi.
+    def upload_p12
+      # TODO upload p12
+      render json: { status: 'OK', message: 'Digital Certificate telah berhasil diunggah.' }, status: 200
+    end
+
+    def input_passphrase
+      # TODO untuk mendapatkan apa yang ada di p12
+      # yaitu nama dan npwp
+      passphrase = params[:passphrase]
+      name = RandomNameGenerator.new.compose(3)
+      current_user.update(name: "PT #{name}", passphrase: passphrase)
+      render json: { status: 'OK', message: 'Passphrase benar.' }, status: 200
+    end
+
+    def synchronize
+      # TODO untuk masukkan p12 ke dalam aplikasi agent
+      # dan mendaftarkan p12 ke aplikasi agent
+      render json: { status: 'OK', message: 'Pendaftaran di DJP telah sukses.' }, status: 200
+    end
 
     private
 
