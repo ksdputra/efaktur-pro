@@ -3,7 +3,7 @@ module Api
     class CompaniesController < Api::BaseController
       before_action :set_company, only: %i[show update destroy]
       def index
-        render json: IndexFacade.call(current_user.id, Company, params), status: 200
+        render json: IndexFacade.new(current_user.id, Company, params).call, status: 200
       end
 
       def dropdown
