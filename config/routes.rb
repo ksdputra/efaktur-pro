@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'users#index'
 
   namespace :api do
+    # USER COLLECTION
     post 'signup', to: 'users#create'
     post 'signin', to: 'users#authenticate'
     scope :user do
@@ -14,10 +15,17 @@ Rails.application.routes.draw do
     resources :user, controller: 'users', only: %i[show update]
 
     namespace :reference  do
+      # COMPANY COLLECTION
       scope :company do
         get 'dropdown', to: 'companies#dropdown'
       end
       resources :company, controller: 'companies', only: %i[index create show update destroy]
+
+      # PRODUCT COLLECTION
+      scope :product do
+        get 'dropdown', to: 'products#dropdown'
+      end
+      resources :product, controller: 'products', only: %i[index create show update destroy]
     end
   end
 end

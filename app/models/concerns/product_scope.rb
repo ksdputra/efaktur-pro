@@ -1,9 +1,9 @@
-module CompanyScope
+module ProductScope
   extend ActiveSupport::Concern
 
   included do
     def self.query(param)
-      where('npwp LIKE ? OR lower(name) LIKE ?', '%' + param + '%', '%' + param.downcase + '%')
+      where('lower(code) LIKE ? OR lower(name) LIKE ?', '%' + param.downcase + '%', '%' + param.downcase + '%')
     end
 
     def self.fetch_index(params)
@@ -13,11 +13,11 @@ module CompanyScope
     end
 
     def self.show_index
-      pluck_all(:id, :npwp, :name, :address, :phone, :is_dropdown)
+      pluck_all(:id, :code, :name, :price, :is_dropdown)
     end
 
     def self.show_dropdown
-      pluck_all(:id, :npwp, :name)
+      pluck_all(:id, :code, :name,)
     end
   end
 
