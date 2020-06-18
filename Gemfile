@@ -38,8 +38,6 @@ group :development, :test do
 end
 
 group :development do
-  # Generate random for user name
-  gem 'random_name_generator'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
@@ -67,3 +65,5 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'pluck_all', '~> 2.0.4'
 # JSON Schema validator, for SPT
 gem 'activerecord_json_validator', '~> 1.3.0'
+# Generate random for user name
+gem 'random_name_generator'
