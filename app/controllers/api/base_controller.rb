@@ -7,7 +7,7 @@ module Api
     attr_reader :current_user
 
     def authorize_request
-      @current_user = Auth::AuthorizeApiRequest.new(request.headers).call_user[:user]
+      @current_user = Auth::AuthorizeApiRequest.new(request.headers).call[:user]
     end
   end
 end

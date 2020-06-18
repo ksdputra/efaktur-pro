@@ -7,7 +7,7 @@ module Auth
       @password = password
     end
 
-    def call_user
+    def call
       Auth::JsonWebToken.encode(user_id: user.id) if user
     end
 

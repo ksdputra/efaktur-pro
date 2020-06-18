@@ -8,7 +8,7 @@ module Api
     end
 
     def authenticate
-      auth_token = Auth::AuthenticateUser.new(auth_params[:identity], auth_params[:password]).call_user
+      auth_token = Auth::AuthenticateUser.new(auth_params[:identity], auth_params[:password]).call
       render json: { status: 'OK', message: auth_token }, status: 200
     end
 

@@ -4,7 +4,7 @@ module Auth
       @headers = headers
     end
 
-    def call_user
+    def call
       {
         user: user
       }
