@@ -12,7 +12,7 @@ module Api
       render json: { status: 'OK', message: auth_token }, status: 200
     end
 
-    def show
+    def index
       object = current_user.show
       render json: { object: object }, status: 200
     end
