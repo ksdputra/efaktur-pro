@@ -36,9 +36,10 @@ ActiveRecord::Schema.define(version: 2020_06_17_051416) do
   end
 
   create_table "nofas", force: :cascade do |t|
-    t.integer "company_id"
+    t.integer "user_id"
     t.string "initial_number"
     t.string "final_number"
+    t.datetime "published_date"
     t.string "last_used"
     t.boolean "is_expired", default: false
     t.boolean "is_active", default: false
