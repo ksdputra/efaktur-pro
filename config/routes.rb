@@ -7,9 +7,6 @@ Rails.application.routes.draw do
     # USER COLLECTION
     post 'signup', to: 'users#create'
     post 'signin', to: 'users#authenticate'
-    post 'upload-p12', to: 'users#upload_p12'
-    post 'input-passphrase', to: 'users#input_passphrase'
-    get 'synchronize', to: 'users#synchronize'
     resources :user, controller: 'users', only: %i[index update]
 
     namespace :reference  do
