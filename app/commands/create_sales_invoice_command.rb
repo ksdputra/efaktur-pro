@@ -43,7 +43,7 @@ class CreateSalesInvoiceCommand
     @sales_invoice.additional_information = ADDITIONAL_INFORMATION[@sales_invoice.additional_information_code]
     @sales_invoice.tax_type = TAX_TYPE[@sales_invoice.tax_type_code]
     @sales_invoice.faktur_status_code = '1'
-    @sales_invoice.faktur_status = FAKTUR_STATUS[@sales_invoice.faktur_status_code]
+    @sales_invoice.faktur_status = FAKTUR_STATUS[@sales_invoice.tax_type_code]
     @sales_invoice.approval_status_code = '0'
     @sales_invoice.approval_status = 'Belum Approve'
     @sales_invoice.user_perekam = @current_user.signer
