@@ -1,4 +1,5 @@
 class SalesInvoice < ApplicationRecord
+  include Filterable, SalesInvoiceScope
 
   has_many :product_lists, dependent: :destroy
   belongs_to :user

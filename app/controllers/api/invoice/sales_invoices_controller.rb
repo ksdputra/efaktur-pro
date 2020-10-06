@@ -1,6 +1,10 @@
 module Api
   module Invoice
     class SalesInvoicesController < Api::BaseController
+      def index
+        render json: IndexFacade.new(current_user.id, SalesInvoice, params).call, status: 200
+      end
+
       def create
         CreateSalesInvoiceCommand.new(current_user, create_sales_invoice_params).save!
         render json: { status: 'OK', message: 'Faktur Pajak Keluaran berhasil direkam' }, status: 201
