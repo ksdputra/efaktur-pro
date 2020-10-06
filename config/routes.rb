@@ -28,5 +28,9 @@ Rails.application.routes.draw do
       end
       resources :nofa, controller: 'nofas', only: %i[index create]
     end
+
+    namespace :invoice do
+      post 'sales', to: 'sales_invoices#create'
+    end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_051416) do
+ActiveRecord::Schema.define(version: 2020_10_06_033021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,67 @@ ActiveRecord::Schema.define(version: 2020_06_17_051416) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "product_lists", force: :cascade do |t|
+    t.integer "sales_invoice_id"
+    t.string "code"
+    t.string "name"
+    t.float "price"
+    t.float "amount"
+    t.float "discount"
+    t.float "total_price"
+    t.float "dpp"
+    t.float "ppn"
+    t.integer "ppnbm_rate"
+    t.float "ppnbm"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.integer "user_id"
     t.string "code"
     t.string "name"
     t.float "price"
     t.boolean "is_dropdown", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sales_invoices", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "fk_id"
+    t.string "npwp"
+    t.string "name"
+    t.string "address"
+    t.string "detail_transaction_code"
+    t.string "detail_transaction"
+    t.string "additional_information_code"
+    t.string "additional_information"
+    t.string "tax_type_code"
+    t.string "tax_type"
+    t.string "nofa"
+    t.datetime "document_date"
+    t.string "tax_periode"
+    t.string "tax_year"
+    t.string "faktur_status_code"
+    t.string "faktur_status"
+    t.bigint "total_dpp"
+    t.bigint "total_ppn"
+    t.bigint "total_ppnbm"
+    t.integer "uang_muka_code"
+    t.bigint "uang_muka_dpp"
+    t.bigint "uang_muka_ppn"
+    t.bigint "uang_muka_ppnbm"
+    t.string "approval_status_code"
+    t.string "approval_status"
+    t.datetime "approval_date"
+    t.string "description"
+    t.string "signer"
+    t.text "reference"
+    t.string "user_perekam"
+    t.datetime "tanggal_rekam"
+    t.string "user_pengubah"
+    t.datetime "tanggal_ubah"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
