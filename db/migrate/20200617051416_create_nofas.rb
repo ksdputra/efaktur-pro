@@ -8,7 +8,7 @@ class CreateNofas < ActiveRecord::Migration[6.0]
       t.string :last_used
       t.boolean :is_expired, default: false
       t.boolean :is_active, default: false
-      t.string :file_path
+      t.string :payload, array: true
 
       t.timestamps
     end

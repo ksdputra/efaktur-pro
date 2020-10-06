@@ -1,4 +1,6 @@
 class Nofa < ApplicationRecord
+  include Filterable, NofaScope
+
   belongs_to :user
 
   NOFA_REGEX = /\A\d+\z/.freeze

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :companies
   has_many :products
-  has_many :nofa
+  has_many :nofas
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
 

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
         get 'dropdown', to: 'products#dropdown'
       end
       resources :product, controller: 'products', only: %i[index create show update destroy]
+
+      resources :nofa, controller: 'nofas', only: %i[index create]
     end
   end
 end

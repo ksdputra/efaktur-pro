@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_051416) do
     t.string "last_used"
     t.boolean "is_expired", default: false
     t.boolean "is_active", default: false
-    t.string "file_path"
+    t.string "payload", array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
