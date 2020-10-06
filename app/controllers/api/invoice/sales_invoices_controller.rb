@@ -1,6 +1,7 @@
 module Api
   module Invoice
     class SalesInvoicesController < Api::BaseController
+      before_action :set_sales_invoice, except: %i[index create]
       def index
         render json: IndexFacade.new(current_user.id, SalesInvoice, params).call, status: 200
       end
@@ -10,7 +11,22 @@ module Api
         render json: { status: 'OK', message: 'Faktur Pajak Keluaran berhasil direkam' }, status: 201
       end
 
-      private 
+      def upload
+        raise ExceptionHandler::CantDoAction, 'Faktur Pajak Keluaran tidak bisa di-upload' if sales_invoice_already_uploaded
+
+        UploadSalesInvoiceCommand.new(current_user, @sales_invoice).call
+        render json: { status: 'OK', message: 'Faktur Pajak Keluaran berhasil di-upload' }, status: 200
+      end
+
+      private
+
+      def set_sales_invoice
+        @sales_invoice = current_user.sales_invoices.find(params[:id])
+      end
+
+      def sales_invoice_already_uploaded
+        ['1', '2'].include?(@sales_invoice.approval_status_code)
+      end
 
       def create_sales_invoice_params
         params.permit(
