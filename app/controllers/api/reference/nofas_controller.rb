@@ -10,6 +10,11 @@ module Api
         render json: { status: 'OK', message: 'NSFP berhasil direkam.' }, status: 201
       end
 
+      def activate
+        ActivateNofaCommand.new(current_user, params[:id]).activate!
+        render json: { status: 'OK', message: 'Nomor Faktur berhasil diaktifkan.' }, status: 200
+      end
+
       private
 
       def nofa_params

@@ -22,6 +22,9 @@ Rails.application.routes.draw do
       end
       resources :product, controller: 'products', only: %i[index create show update destroy]
 
+      scope :nofa do
+        get ':id/activate', to: 'nofas#activate'
+      end
       resources :nofa, controller: 'nofas', only: %i[index create]
     end
   end
