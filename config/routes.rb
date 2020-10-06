@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
       scope :nofa do
         get ':id/activate', to: 'nofas#activate'
+        get 'fetch-nofa', to: 'nofas#fetch_nofa'
       end
       resources :nofa, controller: 'nofas', only: %i[index create]
     end

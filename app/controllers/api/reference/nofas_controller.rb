@@ -15,6 +15,13 @@ module Api
         render json: { status: 'OK', message: 'Nomor Faktur berhasil diaktifkan.' }, status: 200
       end
 
+      def fetch_nofa
+        nofa = current_user.nofas.find_by(is_active: true)
+        raise ExceptionHandler::MissingRecord, 'Mohon rekam/aktifkan Nomor Faktur terlebih dahulu' unless nofa
+
+        render json: { object: nofa.payload.first, published_date: nofa.published_date }, status: 200
+      end
+
       private
 
       def nofa_params
