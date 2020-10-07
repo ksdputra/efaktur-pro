@@ -11,8 +11,15 @@ module Api
         render json: { status: 'OK', message: 'Faktur Pajak Keluaran berhasil direkam' }, status: 201
       end
 
-      def upload
+      def delete
         raise ExceptionHandler::CantDoAction, 'Faktur Pajak Keluaran tidak bisa di-upload' if sales_invoice_already_uploaded
+
+        DeleteSalesInvoiceCommand.new(@current_user, @sales_invoice).destroy!
+        head 204
+      end
+
+      def upload
+        raise ExceptionHandler::CantDoAction, 'Faktur Pajak Keluaran tidak bisa dihapus' if sales_invoice_already_uploaded
 
         UploadSalesInvoiceCommand.new(current_user, @sales_invoice).call
         render json: { status: 'OK', message: 'Faktur Pajak Keluaran berhasil di-upload' }, status: 200

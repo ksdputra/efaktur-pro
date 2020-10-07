@@ -30,9 +30,10 @@ Rails.application.routes.draw do
     end
 
     namespace :invoice do
-      get  'sales', to: 'sales_invoices#index'
-      post 'sales', to: 'sales_invoices#create'
-      get  'sales/:id/upload', to: 'sales_invoices#upload'
+      get     'sales', to: 'sales_invoices#index'
+      post    'sales', to: 'sales_invoices#create'
+      delete  'sales/:id/delete', to: 'sales_invoices#delete'
+      get     'sales/:id/upload', to: 'sales_invoices#upload'
     end
   end
 end
