@@ -25,6 +25,13 @@ module Api
         render json: { status: 'OK', message: 'Faktur Pajak Keluaran berhasil di-upload' }, status: 200
       end
 
+      def cancel
+        raise ExceptionHandler::CantDoAction, 'Faktur Pajak Keluaran tidak bisa dibatalkan' if sales_invoice_cant_be_cancelled
+
+        CancelSalesInvoiceCommand.new(current_user, @sales_invoice).call
+        render json: { status: 'OK', message: 'Faktur Pajak Keluaran berhasil dibatalkan' }, status: 200
+      end
+
       private
 
       def set_sales_invoice
@@ -33,6 +40,10 @@ module Api
 
       def sales_invoice_already_uploaded
         ['1', '2'].include?(@sales_invoice.approval_status_code)
+      end
+
+      def sales_invoice_cant_be_cancelled
+        @sales_invoice.approval_status_code != '2' || @sales_invoice.faktur_status_code != '1'
       end
 
       def create_sales_invoice_params

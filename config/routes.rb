@@ -33,7 +33,8 @@ Rails.application.routes.draw do
       get     'sales', to: 'sales_invoices#index'
       post    'sales', to: 'sales_invoices#create'
       delete  'sales/:id/delete', to: 'sales_invoices#delete'
-      get     'sales/:id/upload', to: 'sales_invoices#upload'
+      put     'sales/:id/upload', to: 'sales_invoices#upload'
+      put     'sales/:id/cancel', to: 'sales_invoices#cancel'
     end
   end
 end

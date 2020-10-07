@@ -10,7 +10,7 @@ class UploadSalesInvoiceCommand
     @sales_invoice.approval_status = 'Approval Sukses'
     @sales_invoice.approval_date = Time.now.utc + 7.hours
     @sales_invoice.description = 'Approval Sukses'
-    @sales_invoice.signer = @current_user.name
+    @sales_invoice.signer = @current_user.signer
     @sales_invoice.save!
   end
 end
